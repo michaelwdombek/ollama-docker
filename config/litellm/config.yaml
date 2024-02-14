@@ -1,14 +1,29 @@
 model_list:
-  - model_name: mixtral
+  #- model_name: mixtral
+  #  litellm_params:
+  #    model: ollama/mixtral:8x7b-instruct-v0.1-q5_K_M
+  #    api_base: http://ollama:11434
+  #    stream: True
+  #- model_name: mistral
+  #  litellm_params:
+  #    model: ollama/mistral
+  #    api_base: http://ollama:11434
+  #    stream: True
+  - model_name: mistral-medium
     litellm_params:
-      model: ollama/mixtral:8x7b-instruct-v0.1-q5_K_M
-      api_base: http://ollama:11434
+      model: mistral/mistral-medium
+      api_key: mistralKey 
+      api_base: https://api.mistral.ai/v1
       stream: True
-  - model_name: mistral
+  - model_name: mistral-embed
     litellm_params:
-      model: ollama/mistral
-      api_base: http://ollama:11434
-      stream: True
+      model: mistral/mistral-embed
+      api_key: MistralKey
+      api_base: https://api.mistral.ai/v1
+    model_info:
+      mode: embedding
+      base_model: mistral-embed
+
 
 
 # module level litellm settings - https://github.com/BerriAI/litellm/blob/main/litellm/__init__.py
@@ -33,3 +48,7 @@ environment_variables:
   # REDIS_HOST: redis-16337.c322.us-east-1-2.ec2.cloud.redislabs.com
   # REDIS_PORT: "16337"
   # REDIS_PASSWORD: 
+  REDIS_HOST: redis
+  REDIS_PORT: "6379"
+  REDIS_PASSWORD: SDsdgFsfm4lmf43lfnm34lkf
+
